@@ -18,8 +18,10 @@ import PropTypes from 'prop-types';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import { downloadFileAPI } from 'src/api/APIRequest';
 import React,{ useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const CentersTable = (props) => {
+  const navigate = useNavigate();
   const { loading = false, centerRequests = [] } = props;
   const getCenterType = (centerType) => {
     if (centerType === '01') {
@@ -160,7 +162,8 @@ const CentersTable = (props) => {
               endIcon={<ArrowLeftIcon />}
               size="large"
               variant="text"
-            >
+              onClick={()=>navigate('/app/centers')}
+            >  
               عرض جميع المراكز
             </Button>
           ) : (

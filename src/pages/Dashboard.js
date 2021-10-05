@@ -62,11 +62,13 @@ const Dashboard = () => {
       response = { isSuccessful: false, message: getTaheelRequestsRs.message };
     } else {
       const { requests, totalCount, totalAccepted, totalPending, totalRejected } = getTaheelRequestsRs.responseBody.data;
+      console.clear();
+      console.log(totalRejected)
       console.log(JSON.stringify(requests));
       setTaheelRequests(requests);
       setTotalTahelRequests(totalCount);
       setTotalCompletedRequests(totalAccepted);
-      setTotalRejectedRequests(totalRejected);
+      setTotalReturnRequests(totalRejected);
       setTotalPendingRequests(totalPending);
       setLoadingTaheelRequests(true)
     }
@@ -174,7 +176,7 @@ const Dashboard = () => {
                 loading={loadingTaheelRequests}
                 totalcompletedrequests={totalCompletedRequests}
                 totalpendingrequests={totalPendingRequests}
-                totalrejectedrequests={totalRejectedRequests}
+                totalrejectedrequests={totalReturnRequests}
                 totaltahelrequests={totalTahelRequests}
               />
             </Grid>
